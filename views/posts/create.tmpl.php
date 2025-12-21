@@ -8,16 +8,16 @@
                     <form action="post/create" method="POST" class = py-3 col-8>
                             <div class="mb-3">
                                 <label for="title" class="form-label">Post title</label>
-                                <input type="text" class="form-control" id="title" name ="title"placeholder="Post title">
+                                <input type="text" class="form-control" id="title" name ="title"placeholder="Post title" value="<?= old('title')?>" >
                             </div>
                             <div class="mb-3">
                                 <label for="descr" class="form-label">Post description</label>
-                                <input type="text" class="form-control" id="descr" name="descr" placeholder="Post description">
+                                <input type="text" class="form-control" id="descr" name="descr" placeholder="Post description" value="<?= old('descr')?>" >
                             </div>
                             <input type="hidden"  name ="HHHHH" value="1212121">
                             <div class="mb-3">
                                 <label for="content" class="form-label">Post content</label>
-                                <textarea class="text" id="content"  name="content" rows="3"></textarea>
+                                <textarea class="text" id="content"  name="content" rows="6"> <?= old('content') ?> </textarea>
                             </div>
                             <button type="submit" class="btn btn-primary mb-3">Create</button>
                    </form>

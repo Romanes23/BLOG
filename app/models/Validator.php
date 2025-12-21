@@ -26,7 +26,8 @@ private function checkAndValidate($field){
                     if (!call_user_func_array([$this, $rule], [$field['value'], $rule_value]  )) {
                             $this->addError(
                             $field['fieldname'],
-                            str_replace([':fieldname:', ':rulevalue:'] , 
+                            str_replace(
+                                             [':fieldname:', ":rulevalue:"] , 
                                             [$field['fieldname'], $rule_value], 
                                             $this->messages[$rule])  );
                     }
