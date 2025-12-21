@@ -27,7 +27,7 @@ $rules=[
 $validator = new Validator();
  $validation = $validator->validate($data,$rules);
 
- dump($validation->errors);
+ //dump($validation->errors);
 
 
 }

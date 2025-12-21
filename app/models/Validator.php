@@ -1,7 +1,7 @@
 <?
 class Validator{
-public $errors = [];
-    // private $errors = [];
+//public $errors = [];  //Это временно
+private $errors = [];
 private $validator_list = ['required','min' ,'max'];
 private $messages = [
                     'required' => "The :fildname: field is required",
@@ -38,6 +38,7 @@ private function checkAndValidate($field){
 private function addError($fieldname,$error){
    $this->errors[$fieldname][] = $error;  
     }
+public function getErrors(){return $this->errors;}
 
 private function required($value, $rule_value){
     return !empty($value);
