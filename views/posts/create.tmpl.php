@@ -14,6 +14,7 @@
                                 <label for="descr" class="form-label">Post description</label>
                                 <input type="text" class="form-control" id="descr" name="descr" placeholder="Post description">
                             </div>
+                            <input type="hidden"  name ="HHHHH" value="1212121">
                             <div class="mb-3">
                                 <label for="content" class="form-label">Post content</label>
                                 <textarea class="text" id="content"  name="content" rows="3"></textarea>

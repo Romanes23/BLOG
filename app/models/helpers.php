@@ -32,7 +32,27 @@ switch ($code) {
 require_once VIEWS."/error.tmpl.php";
 }
 
+//Получаем только те данные, что нужны в форму
+function get_request_data(array $fillable, string  $get_data ="POST"){
+                $data =[];
+   //             dump($fillable);
+                if ($get_data=="POST") {
+                    foreach ($_POST as $key => $value) {
+    //                        echo "[$key] = $value <br>";
+                            if (in_array($key,$fillable)) {$data[$key] = prep($value)  ;  }
+                            }
+                }
+   //         dump($data);
+   return $data;
+}
 
 
+function prep($data){
+    return htmlentities(trim($data));
+}
+
+function len($str){
+    return mb_strlen($str,"utf-8");
+}
 
 ?>
