@@ -58,11 +58,11 @@ private function max($value, $rule_value){
 public function listErrors($fieldname){
     $errors_list ="";
         if (isset( $this->errors[$fieldname])){ 
-//            $errors_list = "<div class='invalid-feedback d-block'><ul class='list-unstyled'>";
+            $errors_list = "<div class='invalid-feedback d-block'><ul class='list-unstyled'>";
             foreach ( $this->errors[$fieldname] as $error){
                     $errors_list .= "<li>$error</li>"; 
             }
-//            $errors_list= "</ul></div>";
+            $errors_list.= "</ul></div>";
         }
 return $errors_list;
 }
