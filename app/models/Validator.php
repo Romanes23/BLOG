@@ -53,6 +53,29 @@ private function max($value, $rule_value){
     return len($value)<=$value;
 }
 
+// т.к. listErrors принадл классу Validator, запускается ч/з $validation в create.php
+
+// public function listErrors($fieldname){
+//     $errors_list ='';
+//         if (isset( $this->errors[$fieldname])){ 
+//             $errors_list = "<div class='invalid-feedback d-block'><ul class='list-unstyled'>";
+//             foreach ( $this->errors[$fieldname] as $error){
+//                     $errors_list .="<li>$error</li>"; 
+//             }
+//             $errors_list= "</ul></div>";
+//         }
+// return $errors_list;
+// }
+
+public function listErrors($fieldname){
+if (isset( $this->errors[$fieldname])){ 
+            foreach ( $this->errors[$fieldname] as $error){
+              echo "<li>$error</li>";
+            }
+}
+}
+
+
 
 
 }
