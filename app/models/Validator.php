@@ -2,11 +2,15 @@
 class Validator{
 //public $errors = [];  //Это временно
 private $errors = [];
+
+//===========================  Добавить емал and match
 private $validator_list = ['required','min' ,'max'];
 private $messages = [
                     'required' => "The :fildname: field is required",
-                    'min' => "The :fieldname: field must be :rulevalue: characters ",
-                    'max' => "The :fieldname: field must be :rulevalue: characters ",
+                    'min' => "The :fieldname: field must be more then :rulevalue: characters ",
+                    'max' => "The :fieldname: field must be less then :rulevalue: characters ",
+                    'email' => " Field must be an email ",
+                    'match' => "The :fieldname: field must match with :rulevalue: fields "
                     ];
 
 public function validate($data=[],$rules=[] ){
@@ -46,12 +50,18 @@ private function required($value, $rule_value){
 }
 
 private function min($value, $rule_value){
-    return len($value)>=$value;
+    return len($value)<=$value;
 }
 
 private function max($value, $rule_value){
     return len($value)<=$value;
 }
+
+private function email($value, $rule_value){
+    return filter_var($value, FILTER_VALIDATE_EMAIL);
+}
+
+
 
 // т.к. listErrors принадл классу Validator, запускается ч/з $validation в create.php
 
@@ -66,5 +76,10 @@ public function listErrors($fieldname){
         }
 return $errors_list;
 }
+
+
+
+
+
 
 }

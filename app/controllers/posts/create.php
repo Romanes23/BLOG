@@ -11,12 +11,12 @@ $rules=[
     'title'=>[
     'required'=> true,
     'min'=>3,
-    'max'=>5
+    'max'=>15
     ],
     'descr'=>[
     'required'=> true,
     'min'=>3,
-    'max'=>5
+    'max'=>25
     ],
     'content'=>[
     'required'=> true,
@@ -27,7 +27,16 @@ $rules=[
 $validator = new Validator();
  $validation = $validator->validate($data,$rules);
 
+if (empty($validation->getErrors())) {
+  $sql = "INSERT INTO `posts`(`title`,`descr`,`content`) VALUES(?,?,?)";
+  try {
+    $db->query($sql,[$data['title'], $data['descr'], $data['content']]);
+  dump("SUCCESS");
 
+  } catch (PDOException $e) {
+    dump ($e->getMessage());
+  }
+}
  
 // dump($validation->errors);
 
