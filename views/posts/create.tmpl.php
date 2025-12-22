@@ -14,7 +14,7 @@
                             <div class="mb-3">
                                 <label for="descr" class="form-label">Post description</label>
                                 <input type="text" class="form-control" id="descr" name="descr" placeholder="Post description" value="<?= old('descr')?>" >
-                                 <?= isset($validation)? $validation->listErrors('decr'):""?>
+                                 <?= isset($validation)? $validation->listErrors('descr'):""?>
                             </div>
                             <input type="hidden"  name ="HHHHH" value="1212121">
                             <div class="mb-3">

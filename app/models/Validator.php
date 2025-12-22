@@ -8,11 +8,10 @@ private $validator_list = ['required','min' ,'max'];
 private $messages = [
                     'required' => "The :fildname: field is required",
                     'min' => "The :fieldname: field must be more then :rulevalue: characters ",
-                    'max' => "The :fieldname: field must be less then :rulevalue: characters ",
-                    'email' => " Field must be an email ",
-                    'match' => "The :fieldname: field must match with :rulevalue: fields "
+                    'max' => "The :fieldname: field must be less then :rulevalue: characters "
                     ];
-
+                    // 'email' => " Field must be an email ",
+                    // 'match' => "The :fieldname: field must match with :rulevalue: fields "
 public function validate($data=[],$rules=[] ){
 
     foreach ($data as $key => $value) {
@@ -20,7 +19,9 @@ public function validate($data=[],$rules=[] ){
        $this->checkAndValidate([
             'fieldname'=>$key,
             'value'=>$value,
-            'rules'=>$rules[$key],  ]); } }
+            'rules'=>$rules[$key],  ]); }
+
+        }
     return $this;
 }
 
@@ -50,18 +51,20 @@ private function required($value, $rule_value){
 }
 
 private function min($value, $rule_value){
-    return len($value)<=$value;
+    return len($value)>$rule_value;
 }
 
 private function max($value, $rule_value){
-    return len($value)<=$value;
+    return len($value)<$rule_value;
 }
 
 private function email($value, $rule_value){
     return filter_var($value, FILTER_VALIDATE_EMAIL);
 }
 
-
+private function match($value, $rule_value){
+    return ;
+}
 
 // т.к. listErrors принадл классу Validator, запускается ч/з $validation в create.php
 

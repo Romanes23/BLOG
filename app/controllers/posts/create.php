@@ -10,13 +10,13 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
 $rules=[
     'title'=>[
     'required'=> true,
-    'min'=>3,
-    'max'=>15
+    'min'=> 5,
+    'max'=> 15
     ],
     'descr'=>[
     'required'=> true,
-    'min'=>3,
-    'max'=>25
+    'min'=> 5,
+    'max'=> 15
     ],
     'content'=>[
     'required'=> true,
