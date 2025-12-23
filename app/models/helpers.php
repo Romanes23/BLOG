@@ -47,6 +47,18 @@ function get_request_data(array $fillable, string  $get_data ="POST"){
 }
 
 
+function redirect($url =''){
+    if ($url) {$redirect=$url;}
+          else{
+               //$redirect= isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER']:PATH;
+                  $redirect =PATH;  
+                }
+        header("Location: $redirect");// предопред. ф-я отправляет HTTP заголовок
+        die();
+}
+
+
+
 function prep($data){
     return htmlentities(trim($data),ENT_QUOTES);
 }
