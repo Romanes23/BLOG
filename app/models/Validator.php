@@ -4,16 +4,18 @@ class Validator{
 private $errors = [];
 
 //===========================  Добавить емал and match
-private $validator_list = ['required','min' ,'max'];
+private $validator_list = ['required','min' ,'max','email', 'match'];
 private $messages = [
                     'required' => "The :fildname: field is required",
                     'min' => "The :fieldname: field must be more then :rulevalue: characters ",
-                    'max' => "The :fieldname: field must be less then :rulevalue: characters "
+                    'max' => "The :fieldname: field must be less then :rulevalue: characters ",
+                    'email' => " Field must be an email ",
+                    'match' => "The :fieldname: field must match with :rulevalue: fields "
                     ];
-                    // 'email' => " Field must be an email ",
-                    // 'match' => "The :fieldname: field must match with :rulevalue: fields "
-public function validate($data=[],$rules=[] ){
 
+private $data =[];
+public function validate($data=[],$rules=[] ){
+$this->data=$data; // данные 'confirm_pass' нужно пересохан. тк 
     foreach ($data as $key => $value) {
        if (in_array($key, array_keys($rules))) {
        $this->checkAndValidate([
@@ -62,9 +64,11 @@ private function email($value, $rule_value){
     return filter_var($value, FILTER_VALIDATE_EMAIL);
 }
 
+// в кач $value буд ключ 'confirm_pass', $rule_value буд ключ confirm те нужно не просто название колонки, а достать из нее значение
+// а его в момент обработки нет, след нужно пересохранять данные $data
 private function match($value, $rule_value){
-    return ;
-}
+    return $value===$this->data[$rule_value];
+} //$value дс с массивом $this->data с ключом [$rule_value]
 
 // т.к. listErrors принадл классу Validator, запускается ч/з $validation в create.php
 
