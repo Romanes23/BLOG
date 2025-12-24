@@ -73,5 +73,46 @@ function old($fieldname){
    return $_POST[$fieldname];
 }
 
+function get_allerts(){
+        $alerts = [
+            "danger",
+            "success",
+            "info",
+            "warning"
+        ];
+
+                    function get_alert($type){         //{$type} цвет   $_SESSION[$type] <-- сам текст оповещения
+                               return "<div class='alert alert-{$type} alert-dismissible fade show' role='alert'>
+                                        $_SESSION[$type] 
+                                        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                                       </div>";
+                    }
+
+                    if (!empty($_SESSION)) {
+                        $rezult = "<div class='container py-3'>";
+                    
+                        foreach ($_SESSION as $key => $value) {
+                            if (in_array($key, $alerts)) {
+                              $rezult .=   get_alert($key);
+                            }
+                        }
+                        $rezult .= "</div>";
+                        echo $rezult;
+                    }
+                   
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
 
 ?>

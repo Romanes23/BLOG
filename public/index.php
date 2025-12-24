@@ -1,6 +1,6 @@
 <?
 
-
+session_start();
 require_once dirname(__DIR__)."/config/config.php";
 require_once MODELS."/helpers.php";
 require_once CONFIG."/routes.php";

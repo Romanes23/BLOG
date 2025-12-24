@@ -51,10 +51,14 @@ if (empty($validation->getErrors())) {
   $sql = "INSERT INTO `posts`(`title`,`descr`,`content`) VALUES(?,?,?)";
   try {
     $db->query($sql,[$data['title'], $data['descr'], $data['content']]);
- // dump("SUCCESS");
-redirect();
+    // dump("SUCCESS");
+    $_SESSION['success']= "Post created successfully"; // это пока одномерный массив, но можно вот так $_SESSION['success'][] и $_SESSION['danger'][], 
+                                                       // и дальше толкать в конец, что бы сделать несколько сообщений за раз
+    redirect();                                        // но это тянет еще на один еласс
   } catch (PDOException $e) {
-    dump ($e->getMessage());
+    $_SESSION['danger']= "Post destroed";            //  $_SESSION['danger'][]
+
+  //  dump ($e->getMessage());
   }
 }
  
