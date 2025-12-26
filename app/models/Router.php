@@ -7,9 +7,9 @@ class Router {
     private string $method;
 
     function __construct() {
-        $this->uri = trim(parse_url($_SERVER['REQUEST_URI'])['path'], "/") ;
-        $this->method = strtoupper($_SERVER['REQUEST_METHOD']) ;
-    
+        $this->uri = trim(parse_url($_SERVER['REQUEST_URI'])['path'], "/") ;  //  "post/create"
+        $this->method = strtoupper($_SERVER['REQUEST_METHOD']) ;                                // "GET"
+  
         
     }
 
@@ -34,14 +34,16 @@ class Router {
         $isMatch = false;
 
         foreach ($this->routes as $route) {
-            if($route['uri'] == $this->uri
+           // dd([$route['uri'],$this->uri]);
+          if(   $route['uri'] == $this->uri
+
                 && $route['method'] == $this->method
                 && file_exists($route['controller'])) 
-            {
-                require_once($route['controller']);
+            {   require_once($route['controller']);
                 $isMatch = true;
                 break;
             }
+                
         }
 
         if(!$isMatch) { abort(); };

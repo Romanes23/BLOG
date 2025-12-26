@@ -19,6 +19,7 @@
 // }
 // else abort();
 
+
 session_start();
 
     require_once dirname(__DIR__)."/config/config.php";
@@ -27,7 +28,7 @@ session_start();
 
     $db_config = require_once CONFIG."/db.php";
     require_once MODELS."/DB.php";
-    $db = DB::getInctance()->getConnection($db_config);
+    $db = DB::getInstance()->getConnection($db_config);
 
 
     

@@ -1,6 +1,7 @@
 <?
 
 class DB{
+  
     private PDO $conn;
     private PDOStatement $stmt;
     private static $instance =null;

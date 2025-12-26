@@ -94,6 +94,7 @@ function get_allerts(){
                         foreach ($_SESSION as $key => $value) {
                             if (in_array($key, $alerts)) {
                               $rezult .=   get_alert($key);
+                              unset($_SESSION[$key]);
                             }
                         }
                         $rezult .= "</div>";

@@ -9,7 +9,7 @@
                     <div class="card mb-3"> 
                         <div class="card-body">
                        <!-- <img src="..." class="card-img-top" alt="..."> -->
-                            <a href="#"><h5 class="card-title"><?=$post['title']?></h5></a>
+                            <a href="posts?id=<?= $post['post_id'] ?>"><h5 class="card-title"><?=$post['title']?></h5></a>
                             <p class="card-text"><?=$post['descr']?></p>
                             <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                         </div>
