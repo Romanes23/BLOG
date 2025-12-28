@@ -6,7 +6,14 @@
                 <div class="col-10">
                     <h3><?= $header ?? 'TEST' ?></h3>
                     <p><?= $post['content'] ?></p>
-
+                    <form action="" method="">
+                        <input type="hidden" name="post_id" value= "<?= $post['post_id'] ?>">  <!-- передачяа id через скрытое поле input -->
+                        <button type="submit" class = "btn btn-primary">Edit</button>
+                    </form>
+                    <form action="" method="">
+                         <input type="hidden" name="post_id" value= "<?= $post['post_id'] ?>">
+                        <button type="submit" class = "btn btn-danger">Delite</button>
+                    </form>
                    
                 </div>
             </div>
