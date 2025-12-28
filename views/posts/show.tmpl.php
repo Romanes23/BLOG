@@ -12,3 +12,5 @@
             </div>
         </main>
 <? require_once COMPONENTS."/footer.tmpl.php";?>
+
+//
