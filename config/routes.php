@@ -33,6 +33,6 @@ $router->post("posts/store", C_POSTS.'/store.php');
 $router->get("posts", C_POSTS.'/show.php'); // 1 ресурс
 $router->get("posts/edit", C_POSTS.'/edit.php');
 // $router->put("posts/edit", C_POSTS.'/update.php');
-// $router->delete("posts/destroy", C_POSTS.'/destroy.php');
+ $router->delete("posts", C_POSTS.'/destroy.php');
 
 $router->get("contacts", CONTROLLERS."/contacts.php");

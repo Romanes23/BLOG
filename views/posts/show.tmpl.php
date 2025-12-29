@@ -10,8 +10,9 @@
                         <input type="hidden" name="post_id" value= "<?= $post['post_id'] ?>">  <!-- передачяа id через скрытое поле input -->
                         <button type="submit" class = "btn btn-primary">Edit</button>
                     </form>
-                    <form action="" method="">
-                         <input type="hidden" name="post_id" value= "<?= $post['post_id'] ?>">
+                    <form action="posts" method="POST">
+                         <input type="hidden" name="post_id" value= "<?= $post['post_id'] ?>"> 
+                          <input type="hidden" name="_method" value= "DELETE">
                         <button type="submit" class = "btn btn-danger">Delite</button>
                     </form>
                    

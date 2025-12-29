@@ -7,8 +7,8 @@ class Router {
     private string $method;
 
     function __construct() {
-        $this->uri = trim(parse_url($_SERVER['REQUEST_URI'])['path'], "/") ;  //  "post/create"
-        $this->method = strtoupper($_SERVER['REQUEST_METHOD']) ;                                // "GET"
+        $this->uri = trim(parse_url($_SERVER['REQUEST_URI'])['path'], "/") ;  //  "posts/create"
+        $this->method = isset($_POST['_method'])? $_POST['_method']:  strtoupper($_SERVER['REQUEST_METHOD']) ;                                // "GET"
   
         
     }
@@ -28,6 +28,20 @@ class Router {
     function post($uri, $controller) {
         $this->add($uri, $controller, "POST");
     }
+function put($uri, $controller) {
+        $this->add($uri, $controller, "PUT");
+    }
+
+function patch($uri, $controller) {
+        $this->add($uri, $controller, "PATCH");
+    }
+
+
+function delete($uri, $controller) {
+        $this->add($uri, $controller, "DELETE");
+    }
+
+
 
 
     function match() {
