@@ -8,8 +8,8 @@ class Router {
 
     function __construct() {
         $this->uri = trim(parse_url($_SERVER['REQUEST_URI'])['path'], "/") ;  //  "posts/create"
-        $this->method = isset($_POST['_method'])? $_POST['_method']:  strtoupper($_SERVER['REQUEST_METHOD']) ;                                // "GET"
-  
+   //     $this->method = isset($_POST['_method'])? prep ($_POST['_method']):  strtoupper($_SERVER['REQUEST_METHOD']) ;  как вариант                              // "GET"
+          $this->method =$_POST['_method']?? $_SERVER['REQUEST_METHOD'] ;  
         
     }
 

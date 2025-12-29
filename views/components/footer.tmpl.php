@@ -1,6 +1,6 @@
         <footer>
             <div class=" p-3 text-center">
-                &copy; Copyright <?= date('y') ?>
+                &copy; Copyright <?= date("y") ?>
             </div>
         </footer>
  

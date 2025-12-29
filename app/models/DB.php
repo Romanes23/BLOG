@@ -41,4 +41,13 @@ public function findOrAbort(){
     $result =$this->find();
 if ($result) {return $result;} else {abort();} 
 }
+
+public function rowCount(){
+return $this->stmt->rowCount();
+}
+
+public function getColumn(){
+return $this->stmt->fetchColumn();
+}
+
 }
