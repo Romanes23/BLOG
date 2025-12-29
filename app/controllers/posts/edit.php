@@ -5,7 +5,7 @@
 <? ?>
                 <div class="col-10">
                             <h3><?= $header ?? '' ?></h3>
-                    <form action="posts/store" method="POST" class = py-3 col-8>
+                    <form action="posts/create" method="POST" class = py-3 col-8>
                             <div class="mb-3">
                                 <label for="title" class="form-label">Post title</label>
                                 <input type="text" class="form-control" id="title" name ="title"placeholder="Post title" value="<?= old('title')?>" >

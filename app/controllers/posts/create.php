@@ -1,5 +1,5 @@
 <?
-// global $db;
+ global $db;
 //  require_once MODELS."/Validator.php";
  $title = $header ="Create a new post";
  require_once V_POSTS."/create.tmpl.php";
