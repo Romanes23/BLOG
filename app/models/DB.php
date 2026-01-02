@@ -20,7 +20,7 @@ public function getConnection($config){
 $dsn = "mysql:host={$config['host']};  dbname={$config['dbname']};  charset={$config['charset']}";
 try {
     $this->conn = new PDO($dsn, $config['username'],  $config['pass'], $config['options']);
-    echo "Connect succsess";
+  echo "Connect succsess";
     return $this;
 } catch (PDOException $e) { echo "DB error " . $e->getMessage();}
 }
@@ -46,7 +46,7 @@ public function rowCount(){
 return $this->stmt->rowCount();
 }
 
-public function getColumn(){
+public function getColumn(){ // возвращает значение ячейки. оч удобный метод
 return $this->stmt->fetchColumn();
 }
 

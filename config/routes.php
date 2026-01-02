@@ -35,4 +35,6 @@ $router->get("posts/edit", C_POSTS.'/edit.php');
 // $router->put("posts/edit", C_POSTS.'/update.php');
  $router->delete("posts", C_POSTS.'/destroy.php');
 
+$router->patch("posts", C_POSTS.'/rate.php');
+
 $router->get("contacts", CONTROLLERS."/contacts.php");
