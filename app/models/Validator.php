@@ -68,6 +68,7 @@ private function email($value, $rule_value){
 // а его в момент обработки нет, след нужно пересохранять данные $data
 private function match($value, $rule_value){
     return $value===$this->data[$rule_value];
+   
 } //$value дс с массивом $this->data с ключом [$rule_value]
 
 // т.к. listErrors принадл классу Validator, запускается ч/з $validation в create.php

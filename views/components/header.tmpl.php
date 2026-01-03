@@ -25,8 +25,27 @@
                         <li class="nav-item">
                             <a class="nav-link" href="posts/create">New Post</a>
                         </li>
+
+
+                        
                      </ul>
+
+
+                     
                 </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                       <li class="nav-item">
+                            <a class="nav-link" href="posts/reg">Registration</a>
+                       </li>
+                              
+                       <li class="nav-item">
+                          <a class="nav-link" href="posts/inp" >Input</a>
+                       </li>                 
+                     </ul>
+     
+                </div>
+                
             </div>
         </nav>
         </header>

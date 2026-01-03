@@ -18,12 +18,12 @@
    CamelCase те postId те также как и CSS стилями-->
                      <!-- ======================= AJAX ============================ -->
 
-                    <form action="posts/edit" method="GET">
+                  <form action="posts/edit" method="GET">                    <!--       редактирование              -->
                         <input type="hidden" name="post_id" value= "<?= $post['post_id'] ?>">  <!-- передачяа id через скрытое поле input -->
                         <button type="submit" class = "btn btn-primary">Edit</button>
                     </form>
                     <form action="posts" method="POST">
-                         <input type="hidden" name="post_id" value= "<?= $post['post_id'] ?>"> 
+                         <input type="hidden" name="post_id" value= "<?= $post['post_id'] ?>">  <!--     удаление             -->
                          <input type="hidden" name="_method" value= "DELETE">       <!--    передача чз API -->
                         <button type="submit" class = "btn btn-danger">Delete</button>
                     </form>

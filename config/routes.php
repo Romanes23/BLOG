@@ -38,3 +38,10 @@ $router->get("posts/edit", C_POSTS.'/edit.php');
 $router->patch("posts", C_POSTS.'/rate.php');
 
 $router->get("contacts", CONTROLLERS."/contacts.php");
+
+$router->get("posts/reg", C_POSTS.'/reg.php');
+
+//$router->post("posts/registration", C_POSTS.'/registration.php');
+$router->post("posts/storeUs", C_POSTS.'/storeUs.php');
+$router->get("posts/inp", C_POSTS.'/inp.php');
+$router->post("posts/storeUsInp", C_POSTS.'/storeUsInp.php');

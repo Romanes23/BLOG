@@ -38,15 +38,27 @@ function get_request_data(array $fillable, string  $get_data ="POST"){
        //         dump($fillable);
                 if ($get_data=="POST") {
                     foreach ($_POST as $key => $value) {
-       //                   echo "[$key] = $value <br>";
-                            if (in_array($key,$fillable)) {$data[$key] = prep($value)  ;  }
+                            if (in_array($key,$fillable)) {
+                                if ($key=='password'){$data[$key] =  password_hash(prep($value),algo: PASSWORD_DEFAULT);}
+                                else $data[$key] = prep($value)  ; 
                             }
+                    }
                 }
-     //     dump($data);
    return $data;
 }
 
-
+function get_request_data_1(array $fillable, string  $get_data ="POST"){
+                $data =[];
+       //         dump($fillable);
+                if ($get_data=="POST") {
+                    foreach ($_POST as $key => $value) {
+                            if (in_array($key,$fillable)) {
+                                $data[$key] = prep($value)  ; 
+                            }
+                    }
+                }
+   return $data;
+}
 function redirect($url =''){
     if ($url) {$redirect=$url;}
           else{
