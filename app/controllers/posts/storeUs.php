@@ -1,10 +1,15 @@
 
+
 <?
 global $db;
 require_once MODELS."/Validator.php";
      $fillable =['username','email','password','confirm_pass']; //,'confirm_pass'
      $data = get_request_data($fillable);
-  //dd ($data);
+//dd($data);
+
+
+
+
 // правила валидации
 $rules=[
     'username'=>[
@@ -37,15 +42,23 @@ $sql = "SELECT * FROM `users` WHERE `name` =? OR `email` =?";
              echo "<H3 style = 'color:red;'> login or email exists already </H3>";
         }
   else
+
+
   if (empty($validation->getErrors())) {
+
   //dd($validation->getErrors());
    $sql = "INSERT INTO `users`(`name`,`email`,`password`) VALUES(?,?,?)";
   try {
     $db->query($sql,[$data['username'], $data['email'], $data['password']]);
-     //dump("SUCCESS");
+
     $_SESSION['success']= "User created successfully"; // это пока одномерный массив, но можно вот так $_SESSION['success'][] и $_SESSION['danger'][], 
-                                                       // и дальше толкать в конец, что бы сделать несколько сообщений за раз
-    redirect();                                        // но это тянет еще на один еласс
+   // и дальше толкать в конец, что бы сделать несколько сообщений за раз
+   // но это тянет еще на один еласс
+   //redirect();  
+    foreach ($_POST as $key => $value) 
+    echo "<H5><p  style ='color:green;'> $key = $value </p></H5>";                                                
+   
+                                        
   } catch (PDOException $e) {
     
     $_SESSION['danger']= "User destroed";            //  $_SESSION['danger'][]

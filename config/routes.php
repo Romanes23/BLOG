@@ -45,3 +45,5 @@ $router->get("posts/reg", C_POSTS.'/reg.php');
 $router->post("posts/storeUs", C_POSTS.'/storeUs.php');
 $router->get("posts/inp", C_POSTS.'/inp.php');
 $router->post("posts/storeUsInp", C_POSTS.'/storeUsInp.php');
+$router->post("posts/storeUsPrint", C_POSTS.'/storeUsPrint.php');
+$router->get("posts/print", C_POSTS.'/print.php');

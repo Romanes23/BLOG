@@ -31,6 +31,9 @@
     </div> -->
 
     <button type="submit" class="btn btn-primary">Register</button>
+     
+
+    
 </form>
         </main>
 <? require_once COMPONENTS."/footer.tmpl.php";?>
