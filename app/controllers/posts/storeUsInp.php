@@ -26,48 +26,39 @@ $validator = new Validator();
   
 
   if (empty($validation->getErrors())) {
-  //dd($validation->getErrors());
+  //dd($validation->getErrors()); // видим ошибки
   
-  echo "<H3 > $pass </H3>";
+ // echo "<H3 > $pass </H3>";  //видим пароль
   //$sql = "SELECT * FROM `users` WHERE `email` =?  ";
 
 
+//dd($data['email']);
 
 
-
-  $sql = "SELECT  password FROM `users` WHERE `email` = ?";
- // try {
+  $sql = "SELECT  `password` FROM `users` WHERE `email` = ?";
   $db->query($sql,[$data['email']]);
        if($db->rowCount()){ 
-       $rezult= $db->getColumn();
-        echo "<H3 > $rezult </H3>";
-        $verify = password_verify($pass, $rezult);  
-if ($verify) {
-  echo "<H3 style = 'color:green;'> You have entered </H3>";}
-redirect(url:"posts/inp"); 
+               $rezult= $db->getColumn();
+                  echo "<H3 > $rezult </H3>";
+                    $verify = password_verify($pass, $rezult);  
+                    if ($verify) {
+                    echo "<H3 style = 'color:green;'> You have entered </H3>";
+                    }
+   //                 redirect(url:"posts/inp"); 
 
         //              echo "<H3 style = 'color:green;'> You have entered </H3>";
-//              $_SESSION['success']= "User created successfully";  
+
                                                        
-//         redirect(url:"posts/reg");    
+        redirect(url:"");    
        } 
         
-//         else echo "<H3 style = 'color:green;'> HHHHHHHHHHHHHHHH </H3>";
+         else echo "<H3 style = 'color:green;'> Нет у нас такого пользователя </H3>";
 //      //dump("SUCCESS");
                                       
-//   } catch (PDOException $e) {
-    
-//     $_SESSION['danger']= "User does not exist";            
-    
-//     redirect(url:"posts/reg"); 
-    
-//     dump ($e->getMessage());
+
   }
-// }
- 
-// dump($validation->errors);
 
-
+      
 
 require_once V_POSTS."/create.tmpl02.php";
 
